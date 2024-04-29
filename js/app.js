@@ -3379,7 +3379,40 @@
             }));
         }
     }), 0);
+    const audioPlayer = () => {
+        let buttonPlayPause = document.querySelector(".audio__button-play");
+        const wavesurfer = WaveSurfer.create({
+            container: "#waveform",
+            height: 36,
+            width: "100%",
+            splitChannels: false,
+            normalize: false,
+            waveColor: "#8b8b8b",
+            progressColor: "#fff",
+            cursorColor: "#ddd5e9",
+            cursorWidth: 2,
+            barWidth: 3,
+            barGap: 3,
+            barRadius: 6,
+            barHeight: 1,
+            minPxPerSec: 20,
+            fillParent: false,
+            url: "./img/audio.mp3",
+            autoplay: false,
+            interact: true,
+            dragToSeek: true,
+            hideScrollbar: true,
+            audioRate: 1,
+            autoScroll: true,
+            autoCenter: true,
+            sampleRate: 8e3
+        });
+        if (buttonPlayPause) buttonPlayPause.addEventListener("click", (() => {
+            wavesurfer.playPause();
+        }));
+    };
     document.addEventListener("DOMContentLoaded", (event => {
+        audioPlayer();
         if (window.matchMedia("(min-width: 767.98px)").matches) {
             console.clear();
             gsap.registerPlugin(ScrollTrigger);
@@ -3427,11 +3460,20 @@
             });
             const featuresEl = document.querySelector(".projects__slider");
             const featureEls = document.querySelectorAll(".project-card");
-            featuresEl.addEventListener("pointermove", (ev => {
+            if (featuresEl) featuresEl.addEventListener("pointermove", (ev => {
                 featureEls.forEach((featureEl => {
                     const rect = featureEl.getBoundingClientRect();
                     featureEl.style.setProperty("--x", ev.clientX - rect.left);
                     featureEl.style.setProperty("--y", ev.clientY - rect.top);
+                }));
+            }));
+            const infoSectionBlock = document.querySelector(".info-section");
+            const infoSectionBlocks = document.querySelectorAll(".info-section__item");
+            if (infoSectionBlock) infoSectionBlock.addEventListener("pointermove", (ev => {
+                infoSectionBlocks.forEach((el => {
+                    const rect = el.getBoundingClientRect();
+                    el.style.setProperty("--x", ev.clientX - rect.left);
+                    el.style.setProperty("--y", ev.clientY - rect.top);
                 }));
             }));
         }
