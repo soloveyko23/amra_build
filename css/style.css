@@ -469,7 +469,7 @@ h2 {
 .hero.hero-type-two .hero__image {
   position: absolute;
   right: 0;
-  top: -55%
+  top: -35%
 }
 .hero.hero-type-two .hero__image img {
   width: 100%;
@@ -840,9 +840,6 @@ h2 {
   .events__content .card__content {
     grid-template-columns: 100px 1fr
   }
-  .audio-section__info .main-text {
-    max-width: 50%
-  }
 }
 @media (min-width:991.98px) {
   [class*=__container] {
@@ -1099,6 +1096,9 @@ h2 {
   .audio-section__info .headline {
     margin-bottom: 1.0416666667vw
   }
+  .audio-section__info .main-text {
+    max-width: 50%
+  }
   .info-section {
     margin-bottom: 10.4166666667vw
   }
@@ -1277,6 +1277,9 @@ h2 {
   }
   .audio-section__info .headline {
     margin-bottom: 1.3888888889vw
+  }
+  .audio-section__info .main-text {
+    max-width: 70%
   }
   .info-section {
     margin-bottom: 13.8888888889vw
