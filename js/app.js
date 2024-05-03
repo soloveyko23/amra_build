@@ -3371,6 +3371,32 @@
         initSliders();
     }));
     let addWindowScrollEvent = false;
+    function headerScroll() {
+        addWindowScrollEvent = true;
+        const header = document.querySelector("header.header");
+        const headerShow = header.hasAttribute("data-scroll-show");
+        const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
+        const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
+        let scrollDirection = 0;
+        let timer;
+        document.addEventListener("windowScroll", (function(e) {
+            const scrollTop = window.scrollY;
+            clearTimeout(timer);
+            if (scrollTop >= startPoint) {
+                !header.classList.contains("_header-scroll") ? header.classList.add("_header-scroll") : null;
+                if (headerShow) {
+                    if (scrollTop > scrollDirection) header.classList.contains("_header-show") ? header.classList.remove("_header-show") : null; else !header.classList.contains("_header-show") ? header.classList.add("_header-show") : null;
+                    timer = setTimeout((() => {
+                        !header.classList.contains("_header-show") ? header.classList.add("_header-show") : null;
+                    }), headerShowTimer);
+                }
+            } else {
+                header.classList.contains("_header-scroll") ? header.classList.remove("_header-scroll") : null;
+                if (headerShow) header.classList.contains("_header-show") ? header.classList.remove("_header-show") : null;
+            }
+            scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
+        }));
+    }
     setTimeout((() => {
         if (addWindowScrollEvent) {
             let windowScroll = new Event("windowScroll");
@@ -3381,49 +3407,6 @@
     }), 0);
     document.addEventListener("DOMContentLoaded", (event => {
         if (window.matchMedia("(min-width: 767.98px)").matches) {
-            gsap.registerPlugin(ScrollTrigger);
-            const cardsWrappers = gsap.utils.toArray(".card-wrapper");
-            const cards = gsap.utils.toArray(".card");
-            cardsWrappers.forEach(((wrapper, i) => {
-                const card = cards[i];
-                let scale = 1, rotation = 0;
-                if (i !== cards.length - 1) {
-                    scale = .9 + .025 * i;
-                    rotation = -10;
-                }
-                gsap.to(card, {
-                    scale,
-                    rotationX: rotation,
-                    transformOrigin: "top center",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: wrapper,
-                        start: "top " + (60 + 10 * i),
-                        end: "bottom 50%",
-                        endTrigger: ".events",
-                        scrub: true,
-                        pin: wrapper,
-                        pinSpacing: false
-                    }
-                });
-            }));
-            ScrollTrigger.create({
-                trigger: ".events__sidebar-wrapper",
-                start: "top 90px",
-                endTrigger: ".events",
-                end: "bottom bottom",
-                pin: ".events__sidebar-wrapper"
-            });
-            gsap.to(".events__illustration", {
-                rotate: 45,
-                scrollTrigger: {
-                    trigger: ".events",
-                    start: "top 90px",
-                    endTrigger: ".events",
-                    end: "bottom bottom",
-                    scrub: 1
-                }
-            });
             const featuresEl = document.querySelector(".projects__slider");
             const featureEls = document.querySelectorAll(".project-card");
             if (featuresEl) featuresEl.addEventListener("pointermove", (ev => {
@@ -3447,4 +3430,5 @@
     window["FLS"] = true;
     isWebp();
     menuInit();
+    headerScroll();
 })();

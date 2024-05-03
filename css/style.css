@@ -137,6 +137,7 @@ html {
   min-width: 0
 }
 [class*=__container] {
+  max-width: 90rem;
   margin: 0 auto
 }
 .form__row:last-child {
@@ -162,16 +163,16 @@ textarea {
   color: var(--dark-theme-white)
 }
 .input::-webkit-input-placeholder {
-  color: rgba(204,204,204,.8)
+  color: var(--light-theme-grey)
 }
 .input:-ms-input-placeholder {
-  color: rgba(204,204,204,.8)
+  color: var(--light-theme-grey)
 }
 .input::-ms-input-placeholder {
-  color: rgba(204,204,204,.8)
+  color: var(--light-theme-grey)
 }
 .input::placeholder {
-  color: rgba(204,204,204,.8)
+  color: var(--light-theme-grey)
 }
 .input[placeholder]:not([data-placeholder-nohiden])::-webkit-input-placeholder {
   -webkit-transition: opacity .3s;
@@ -260,6 +261,7 @@ textarea.input {
   color: var(--dark-theme-white)
 }
 .section-headline {
+  gap: .5rem;
   color: rgba(204,204,204,.8);
   font-weight: 400;
   line-height: 1;
@@ -356,14 +358,40 @@ h2 {
   background-color: var(--dark-theme-accent-blue)
 }
 .header {
-  position: relative;
-  z-index: 5
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%
+}
+.menu-open .header {
+  height: 100%!important;
+  -webkit-backdrop-filter: blur(0)!important;
+  backdrop-filter: blur(0)!important;
+  background-color: var(--dark-theme-bg-color)!important
+}
+.header._header-scroll {
+  position: fixed;
+  background-color: rgba(6,6,6,.6745098039);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  height: 60px
+}
+.header._header-scroll:not(.menu-open) .header._header-scroll {
+  background-color: var(--dark-theme-bg-color);
+  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: blur(0)
+}
+.header._header-scroll .header__content {
+  -webkit-transform: translateY(-30px);
+  transform: translateY(-30px)
 }
 .header__content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem
+  gap: 1rem;
+  transition: all .3s
 }
 .header__menu .menu__list {
   display: flex;
@@ -399,6 +427,30 @@ h2 {
 }
 .header__logo svg {
   height: auto
+}
+@-webkit-keyframes combs-fadein {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(.9) translate(47px,42px);
+    transform: scale(.9) translate(47px,42px)
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1) translate(0);
+    transform: scale(1) translate(0)
+  }
+}
+@keyframes combs-fadein {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(.9) translate(47px,42px);
+    transform: scale(.9) translate(47px,42px)
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1) translate(0);
+    transform: scale(1) translate(0)
+  }
 }
 .icon-menu {
   display: none
@@ -439,8 +491,8 @@ h2 {
 }
 .hero__image {
   position: absolute;
-  right: 0;
-  top: -5%;
+  right: 15%;
+  top: 5%;
   z-index: 0
 }
 .hero__image img {
@@ -523,6 +575,7 @@ h2 {
   align-items: center
 }
 .events__content .card__content .main-text {
+  color: var(--dark-theme-grey);
   line-height: 1.5
 }
 .events__content .card__footer {
@@ -566,6 +619,9 @@ h2 {
 .projects .project-card:hover:after {
   opacity: 1
 }
+.projects .project-card .main-text {
+  color: var(--dark-theme-grey)
+}
 .projects .project-card__body {
   height: 100%;
   display: flex;
@@ -583,6 +639,7 @@ h2 {
   height: auto
 }
 .form-section__header .main-text {
+  line-height: 1.6;
   color: var(--dark-theme-grey)
 }
 .form-section__content {
@@ -831,7 +888,7 @@ h2 {
     display: none
   }
   .events__content {
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: .8fr 1fr
   }
   .events__content .cards {
     display: flex;
@@ -843,61 +900,18 @@ h2 {
 }
 @media (min-width:991.98px) {
   [class*=__container] {
-    max-width: 88.8888888889vw
-  }
-  [class*=__container] {
     padding: 0 1.0416666667vw
-  }
-  .input::-webkit-input-placeholder {
-    font-size: 1.6666666667vw
-  }
-  .input:-ms-input-placeholder {
-    font-size: 1.6666666667vw
-  }
-  .input::-ms-input-placeholder {
-    font-size: 1.6666666667vw
-  }
-  .input,
-  .input::placeholder {
-    font-size: 1.6666666667vw
   }
   .language-block ul li {
     margin-bottom: .2777777778vw
-  }
-  .language-block ul li a {
-    font-size: 1.1111111111vw
-  }
-  .section-headline {
-    font-size: 1.25vw;
-    gap: .6944444444vw
   }
   .section-headline__icon svg {
     width: 1.3194444444vw;
     height: 1.3194444444vw
   }
-  .margin-bottom-20 {
-    margin-bottom: 1.3888888889vw
-  }
-  .margin-bottom-70-to-50 {
-    margin-bottom: 4.8611111111vw
-  }
-  .h1,
-  h1 {
-    font-size: 6.9444444444vw
-  }
-  .h2,
-  h2 {
-    font-size: 3.3333333333vw
-  }
   .socials-block ul li a {
     gap: .6944444444vw;
     padding: .8333333333vw .9722222222vw
-  }
-  .header__menu .menu__link {
-    font-size: 1.1111111111vw
-  }
-  .hero__image {
-    width: 62.5vw
   }
   .hero.hero-type-one .hero-type-one__list li {
     margin-bottom: 1.6666666667vw;
@@ -947,6 +961,39 @@ h2 {
     min-height: 3.0208333333vw;
     padding: .3125vw .625vw
   }
+  .input::-webkit-input-placeholder {
+    font-size: 1.25vw
+  }
+  .input:-ms-input-placeholder {
+    font-size: 1.25vw
+  }
+  .input::-ms-input-placeholder {
+    font-size: 1.25vw
+  }
+  .input,
+  .input::placeholder {
+    font-size: 1.25vw
+  }
+  .language-block ul li a {
+    font-size: .8333333333vw
+  }
+  .section-headline {
+    font-size: .8333333333vw
+  }
+  .margin-bottom-20 {
+    margin-bottom: .8333333333vw
+  }
+  .margin-bottom-70-to-50 {
+    margin-bottom: 2.5vw
+  }
+  .h1,
+  h1 {
+    font-size: 3.3333333333vw
+  }
+  .h2,
+  h2 {
+    font-size: 2.5vw
+  }
   .main-text {
     font-size: 1.25vw
   }
@@ -970,6 +1017,9 @@ h2 {
   .socials-block ul li a span {
     font-size: .8333333333vw
   }
+  .header__menu .menu__link {
+    font-size: .8333333333vw
+  }
   .header__logo svg {
     width: 10vw
   }
@@ -986,6 +1036,9 @@ h2 {
     padding-top: 7.8125vw;
     margin-bottom: 10.4166666667vw;
     padding-bottom: 10.4166666667vw
+  }
+  .hero__image {
+    width: 40.4166666667vw
   }
   .events {
     margin-bottom: 10.4166666667vw
@@ -1032,7 +1085,8 @@ h2 {
     margin-bottom: 10.4166666667vw
   }
   .form-section__header .main-text {
-    margin-top: 2.0833333333vw
+    margin-top: 2.0833333333vw;
+    max-width: 80%
   }
   .form-section__content {
     gap: 2.5vw
@@ -1130,6 +1184,37 @@ h2 {
     min-height: 4.0277777778vw;
     padding: .4166666667vw .8333333333vw
   }
+  .input::-webkit-input-placeholder {
+    font-size: 1.6666666667vw
+  }
+  .input:-ms-input-placeholder {
+    font-size: 1.6666666667vw
+  }
+  .input::-ms-input-placeholder {
+    font-size: 1.6666666667vw
+  }
+  .input,
+  .input::placeholder {
+    font-size: 1.6666666667vw
+  }
+  .language-block ul li a {
+    font-size: 1.1111111111vw
+  }
+  .section-headline {
+    font-size: 1.25vw;
+    gap: .6944444444vw
+  }
+  .margin-bottom-70-to-50 {
+    margin-bottom: 3.3333333333vw
+  }
+  .h1,
+  h1 {
+    font-size: 4.4444444444vw
+  }
+  .h2,
+  h2 {
+    font-size: 3.3333333333vw
+  }
   .main-text {
     font-size: 1.6666666667vw
   }
@@ -1153,6 +1238,9 @@ h2 {
   .socials-block ul li a span {
     font-size: 1.1111111111vw
   }
+  .header__menu .menu__link {
+    font-size: 1.1111111111vw
+  }
   .header__logo svg {
     width: 13.3333333333vw
   }
@@ -1168,6 +1256,9 @@ h2 {
   .hero {
     padding-top: 10.4166666667vw;
     margin-bottom: 13.8888888889vw
+  }
+  .hero__image {
+    width: 53.8888888889vw
   }
   .events {
     margin-bottom: 13.8888888889vw
@@ -1211,7 +1302,8 @@ h2 {
     margin-bottom: 13.8888888889vw
   }
   .form-section__header .main-text {
-    margin-top: 2.7777777778vw
+    margin-top: 2.7777777778vw;
+    max-width: 80%
   }
   .form-section__content {
     gap: 3.3333333333vw
@@ -1302,9 +1394,18 @@ h2 {
   }
 }
 @media (max-width:991.98px) {
+  .margin-bottom-20 {
+    margin-bottom: 1.1111111111vw
+  }
+  .header._header-scroll .header__content {
+    -webkit-transform: translateY(-16px);
+    transform: translateY(-16px)
+  }
   .hero__image {
-    width: 100%;
+    width: 31.25rem;
+    height: 21.875rem;
     top: auto;
+    left: 43%;
     bottom: -25%
   }
   .hero.hero-type-two .hero__image {
@@ -1349,14 +1450,18 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
     transition: all .3s;
+    opacity: 0;
+    pointer-events: none;
     background-color: var(--dark-theme-bg-color)
   }
   .menu-open .header__menu .menu__body {
-    -webkit-transform: translateX(0);
-    transform: translateX(0)
+    opacity: 1;
+    pointer-events: auto;
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
   }
   .header__menu .menu__list {
     flex-direction: column;
@@ -1426,6 +1531,10 @@ h2 {
   .footer__socials ul li a span {
     display: none
   }
+  .hero__image {
+    bottom: auto;
+    top: 30px
+  }
   .events__illustration {
     display: none
   }
@@ -1456,9 +1565,6 @@ h2 {
   }
 }
 @media (max-width:479.98px) {
-  [class*=__container] {
-    max-width: 266.6777782408vw
-  }
   [class*=__container] {
     padding: 0 3.1251302138vw
   }
@@ -1500,14 +1606,14 @@ h2 {
     height: 3.1251302138vw
   }
   .margin-bottom-20 {
-    margin-bottom: 4.166840285vw
+    margin-bottom: 3.333472228vw
   }
   .margin-bottom-70-to-50 {
-    margin-bottom: 10.4171007125vw
+    margin-bottom: 5.000208342vw
   }
   .h1,
   h1 {
-    font-size: 15.4173090545vw
+    font-size: 6.666944456vw
   }
   .h2,
   h2 {
@@ -1588,9 +1694,6 @@ h2 {
   .hero {
     padding-top: 20.8342014251vw;
     margin-bottom: 20.8342014251vw
-  }
-  .hero__image {
-    bottom: 0
   }
   .hero__image img {
     opacity: .6
@@ -1818,9 +1921,6 @@ h2 {
 }
 @media (max-width:991.98px) and (min-width:479.98px) {
   [class*=__container] {
-    max-width: 129.0348595738vw
-  }
-  [class*=__container] {
     padding: 0 1.5121272606vw
   }
   .form__row {
@@ -1861,14 +1961,14 @@ h2 {
     height: 1.7137442287vw
   }
   .margin-bottom-20 {
-    margin-bottom: 2.0161696808vw
+    margin-bottom: 1.6129357447vw
   }
   .margin-bottom-70-to-50 {
-    margin-bottom: 5.0404242021vw
+    margin-bottom: 2.419403617vw
   }
   .h1,
   h1 {
-    font-size: 8.0646787234vw
+    font-size: 4.0323393617vw
   }
   .h2,
   h2 {
