@@ -520,6 +520,9 @@ h2 {
 .hero.hero-type-one .hero-type-one__list li:last-child {
   margin-bottom: 0
 }
+.hero.hero-type-two .hero__info {
+  max-width: 100%
+}
 .hero.hero-type-two .hero__image {
   position: absolute;
   right: 0;
@@ -534,6 +537,7 @@ h2 {
   object-fit: cover
 }
 .hero.hero-type-two .hero-type-two__list {
+  max-width: 100%;
   color: var(--dark-theme-semi-transparent-grey)
 }
 .hero.hero-type-two .hero-type-two__list ul {
@@ -811,6 +815,9 @@ h2 {
 .info-section__item:nth-child(even) {
   border-right: none
 }
+.info-section__item .item__icon svg {
+  height: auto
+}
 .info-section__item .main-text {
   line-height: 1.5;
   color: var(--dark-theme-grey)
@@ -941,9 +948,6 @@ h2 {
   }
   .events__content .card__content {
     margin-bottom: 2.7777777778vw
-  }
-  .principles__item .item__body {
-    grid-template-columns: 140px 1fr
   }
   .audio-section__audio {
     align-items: center;
@@ -1115,6 +1119,9 @@ h2 {
     width: 7.2916666667vw
   }
   .principles__item .item__body {
+    grid-template-columns: 7.2916666667vw 1fr
+  }
+  .principles__item .item__body {
     gap: 1.4583333333vw
   }
   .principles__item .item__body .headline {
@@ -1179,6 +1186,9 @@ h2 {
   }
   .info-section__item .item__icon {
     margin-bottom: 2.0833333333vw
+  }
+  .info-section__item .item__icon svg {
+    width: 2.0833333333vw
   }
   .info-section__item .headline {
     margin-bottom: 1.0416666667vw
@@ -1344,6 +1354,9 @@ h2 {
     width: 9.7222222222vw
   }
   .principles__item .item__body {
+    grid-template-columns: 9.7222222222vw 1fr
+  }
+  .principles__item .item__body {
     gap: 1.9444444444vw
   }
   .principles__item .item__body .headline {
@@ -1412,6 +1425,9 @@ h2 {
   .info-section__item .item__icon {
     margin-bottom: 2.7777777778vw
   }
+  .info-section__item .item__icon svg {
+    width: 2.7777777778vw
+  }
   .info-section__item .headline {
     margin-bottom: 1.3888888889vw
   }
@@ -1450,7 +1466,7 @@ h2 {
     max-width: 100%
   }
   .principles__item .item__body {
-    grid-template-columns: 100px 1fr
+    grid-template-columns: 10.0808484042vw 1fr
   }
   .audio-section__content {
     grid-template-columns: repeat(1,1fr)
@@ -1581,7 +1597,7 @@ h2 {
     width: 8.3335503529vw
   }
   .principles__item .item__body {
-    grid-template-columns: 64px 1fr
+    grid-template-columns: 8.3335503529vw 1fr
   }
 }
 @media (max-width:767.98px) and (any-hover:none) {
@@ -1744,7 +1760,7 @@ h2 {
   .hero.hero-type-two .hero__image {
     bottom: 0;
     right: 0;
-    top: -10%
+    top: -30%
   }
   .hero.hero-type-two .hero-type-two__list ul {
     flex-direction: column;
@@ -1852,6 +1868,9 @@ h2 {
     width: 13.333888912vw
   }
   .principles__item .item__body {
+    grid-template-columns: 12.500520855vw 1fr
+  }
+  .principles__item .item__body {
     gap: 3.333472228vw
   }
   .principles__item .item__body .headline {
@@ -1939,6 +1958,9 @@ h2 {
   }
   .info-section__item .item__icon {
     margin-bottom: 8.33368057vw
+  }
+  .info-section__item .item__icon svg {
+    width: 8.33368057vw
   }
   .info-section__item .headline {
     margin-bottom: 2.0834201425vw
@@ -2207,6 +2229,9 @@ h2 {
   }
   .info-section__item .item__icon {
     margin-bottom: 4.0323393617vw
+  }
+  .info-section__item .item__icon svg {
+    width: 4.0323393617vw
   }
   .info-section__item .headline {
     margin-bottom: 2.0161696808vw
