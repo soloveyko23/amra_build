@@ -3405,28 +3405,6 @@
             }));
         }
     }), 0);
-    document.addEventListener("DOMContentLoaded", (event => {
-        if (window.matchMedia("(min-width: 767.98px)").matches) {
-            const featuresEl = document.querySelector(".projects__slider");
-            const featureEls = document.querySelectorAll(".project-card");
-            if (featuresEl) featuresEl.addEventListener("pointermove", (ev => {
-                featureEls.forEach((featureEl => {
-                    const rect = featureEl.getBoundingClientRect();
-                    featureEl.style.setProperty("--x", ev.clientX - rect.left);
-                    featureEl.style.setProperty("--y", ev.clientY - rect.top);
-                }));
-            }));
-            const infoSectionBlock = document.querySelector(".info-section");
-            const infoSectionBlocks = document.querySelectorAll(".info-section__item");
-            if (infoSectionBlock) infoSectionBlock.addEventListener("pointermove", (ev => {
-                infoSectionBlocks.forEach((el => {
-                    const rect = el.getBoundingClientRect();
-                    el.style.setProperty("--x", ev.clientX - rect.left);
-                    el.style.setProperty("--y", ev.clientY - rect.top);
-                }));
-            }));
-        }
-    }));
     window["FLS"] = true;
     isWebp();
     menuInit();

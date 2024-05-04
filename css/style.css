@@ -562,9 +562,6 @@ h2 {
   background-color: #181818;
   transition: all .3s
 }
-.events__content .card:hover {
-  box-shadow: rgba(80,68,205,.2) 0 12px 24px
-}
 .events__content .card__date {
   border-radius: 2000px;
   display: inline-flex;
